@@ -1,4 +1,6 @@
-/* block specific CSS goes here */
+/***************
+  Hero Block
+***************/
 
 main .hero-container > div {
   max-width: unset;
