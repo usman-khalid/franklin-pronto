@@ -1,6 +1,8 @@
-import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
+import { createOptimizedPicture } from '../../utils/dom-utils.js';
+import cardClasses from './cards.module.css';
 
 export default function decorate(block) {
+  block.classList.add(cardClasses.cards);
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -8,8 +10,8 @@ export default function decorate(block) {
     li.innerHTML = row.innerHTML;
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) {
-        div.className = 'cards-card-image';
-      } else div.className = 'cards-card-body';
+        div.className = cardClasses.cardImage;
+      } else div.className = cardClasses.cardBody;
     });
     ul.append(li);
   });

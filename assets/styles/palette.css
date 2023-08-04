@@ -1,0 +1,27 @@
+/* ========================================= 
+             COLOR PALETTE 
+======================================== */
+
+:root {
+  /* Base color hue and saturation values */
+  --brand-primary-hs: 6, 92%;
+  --brand-secondary-hs: 215, 61%;
+  --brand-primary-l: 47%;
+  --brand-secondary-l: 16%;
+  --color-grey-hs: 174, 11%;
+  --color-grey-l: 92%;
+
+  /* All computed colors */
+  --brand-primary: hsl(var(--brand-primary-hs), var(--brand-primary-l));
+  --brand-primary-lighter: hsl(var(--brand-primary-hs), calc(var(--brand-primary-l) + 10%));
+  --brand-primary-darker: hsl(var(--brand-secondary-hs), calc(var(--brand-primary-l) - 10%));
+  --brand-secondary: hsl(var(--brand-secondary-hs), var(--brand-secondary-l));
+  --brand-secondary-lighter: hsl(var(--brand-secondary-hs), calc(var(--brand-secondary-l) + 10%));
+  --brand-secondary-darker: hsl(var(--brand-secondary-hs), calc(var(--brand-secondary-l) - 10%));
+  --color-grey: hsl(var(--color-grey-hs), var(--color-grey-l));
+  --color-grey-lighter: hsl(var(--color-grey-hs), calc(var(--color-grey-l) + 10%));
+  --color-grey-darker: hsl(var(--color-grey-hs), calc(var(--color-grey-l) - 10%));
+  --color-khaki: hsl(29, 17%, 64%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsla(210, 11%, 4%, 1);
+}

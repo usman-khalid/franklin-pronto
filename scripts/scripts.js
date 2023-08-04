@@ -1,17 +1,14 @@
+import { sampleRUM, waitForLCP } from './lib-franklin.js';
+import { decorateTemplateAndTheme } from '../utils/template-utils.js';
+import { loadHeader, loadFooter, loadCSS } from '../utils/page-utils.js';
 import {
-  sampleRUM,
   buildBlock,
-  loadHeader,
-  loadFooter,
   decorateButtons,
   decorateIcons,
   decorateSections,
   decorateBlocks,
-  decorateTemplateAndTheme,
-  waitForLCP,
   loadBlocks,
-  loadCSS,
-} from './lib-franklin.js';
+} from '../utils/block-utils.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -37,7 +34,7 @@ function buildHeroBlock(main) {
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
-  await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
+  await loadCSS(`${window.hlx.codeBasePath}/dist/assets/fonts.min.css`);
   try {
     if (!window.location.hostname.includes('localhost')) {
       sessionStorage.setItem('fonts-loaded', 'true');
@@ -113,7 +110,7 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
-  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  loadCSS(`${window.hlx.codeBasePath}/dist/assets/lazy-styles.min.css`);
   loadFonts();
 
   sampleRUM('lazy');
@@ -127,7 +124,7 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  // window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
 

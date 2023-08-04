@@ -1,1 +1,3 @@
 helix-importer-ui
+build-scripts/sass-compile.js
+dist

@@ -1,0 +1,16 @@
+/* ========================================= 
+             SITE VARIABLES 
+======================================== */
+
+:root {
+  /* Site colors */
+  --link-color: var(--brand-primary);
+  --link-hover-color: var(--brand-primary-lighter);
+  --background-color: var(--color-white);
+  --overlay-background-color: var(--color-grey-darker);
+  --highlight-background-color: var(--color-grey);
+  --text-color: var(--color-black);
+
+  /* Nav height */
+  --nav-height: 64px;
+}

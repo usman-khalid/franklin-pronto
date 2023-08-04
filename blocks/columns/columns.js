@@ -1,4 +1,7 @@
+import columnsClasses from './columns.module.css';
+
 export default function decorate(block) {
+  block.classList.add(columnsClasses.columns);
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
@@ -10,7 +13,7 @@ export default function decorate(block) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
+          picWrapper.classList.add(columnsClasses.columnsImgCol);
         }
       }
     });

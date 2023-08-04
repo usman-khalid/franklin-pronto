@@ -1,0 +1,42 @@
+/* ========================================= 
+             TYPOGRAPHT 
+======================================== */
+
+:root {
+  /* Base text variables */
+  --text-base-size: 1rem;
+  --text-scale-ratio: 1.25;
+  --text-sm: calc((var(--text-base-size)) / var(--text-scale-ratio));
+  --text-md: calc(var(--text-sm) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+
+  /* Body text size */
+  --text-body: var(--text-md);
+
+  /* Heading sizes */
+  --heading-size-xxxl: var(--text-xxxl);
+  --heading-size-xxl: var(--text-xxl);
+  --heading-size-xl: var(--text-xl);
+  --heading-size-lg: var(--text-lg);
+  --heading-size-md: var(--text-md);
+  --heading-size-sm: var(--text-sm);
+
+  /* Line heights */
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+
+  /* Fonts */
+  --body-font-family: roboto, roboto-fallback;
+  --heading-font-family: var(--body-font-family);
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+}
+
+@media (min-width: 767px) {
+  :root {
+    --space-unit: 1.125em;
+    --text-base-size: 1.25rem;
+  }
+}

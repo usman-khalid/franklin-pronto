@@ -1,4 +1,6 @@
-import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import { decorateIcons } from '../../utils/block-utils.js';
+import { getMetadata } from '../../utils/page-utils.js';
+import headerClasses from './header.module.css';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -6,7 +8,7 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
-    const navSections = nav.querySelector('.nav-sections');
+    const navSections = nav.querySelector(`.${headerClasses.navSections}`);
     const navSectionExpanded = navSections.querySelector(
       '[aria-expanded="true"]',
     );
@@ -24,11 +26,11 @@ function closeOnEscape(e) {
 
 function openOnKeydown(e) {
   const focused = document.activeElement;
-  const isNavDrop = focused.className === 'nav-drop';
+  const isNavDrop = focused.className === headerClasses.navDrop;
   if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
     const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
     // eslint-disable-next-line no-use-before-define
-    toggleAllNavSections(focused.closest('.nav-sections'));
+    toggleAllNavSections(focused.closest(`.${headerClasses.navSections}`));
     focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
 }
@@ -43,9 +45,11 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-  });
+  sections
+    .querySelectorAll(`.${headerClasses.navSections} > ul > li`)
+    .forEach((section) => {
+      section.setAttribute('aria-expanded', expanded);
+    });
 }
 
 /**
@@ -59,7 +63,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     forceExpanded !== null
       ? !forceExpanded
       : nav.getAttribute('aria-expanded') === 'true';
-  const button = nav.querySelector('.nav-hamburger button');
+  const button = nav.querySelector(`.${headerClasses.navHamburger} button`);
   document.body.style.overflowY = expanded || isDesktop.matches ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(
@@ -71,7 +75,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     expanded ? 'Open navigation' : 'Close navigation',
   );
   // enable nav dropdown keyboard accessibility
-  const navDrops = navSections.querySelectorAll('.nav-drop');
+  const navDrops = navSections.querySelectorAll(`.${headerClasses.navDrop}`);
   if (isDesktop.matches) {
     navDrops.forEach((drop) => {
       if (!drop.hasAttribute('tabindex')) {
@@ -115,16 +119,23 @@ export default async function decorate(block) {
     nav.innerHTML = html;
 
     const classes = ['brand', 'sections', 'tools'];
+
+    const classLookup = {
+      brand: headerClasses.navBrand,
+      sections: headerClasses.navSections,
+      tools: headerClasses.navTools,
+    };
+
     classes.forEach((c, i) => {
       const section = nav.children[i];
-      if (section) section.classList.add(`nav-${c}`);
+      if (section) section.classList.add(classLookup[c]);
     });
 
-    const navSections = nav.querySelector('.nav-sections');
+    const navSections = nav.querySelector(`.${headerClasses.navSections}`);
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         if (navSection.querySelector('ul')) {
-          navSection.classList.add('nav-drop');
+          navSection.classList.add(headerClasses.navDrop);
         }
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
@@ -142,9 +153,9 @@ export default async function decorate(block) {
 
     // hamburger for mobile
     const hamburger = document.createElement('div');
-    hamburger.classList.add('nav-hamburger');
+    hamburger.classList.add(headerClasses.navHamburger);
     hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-        <span class="nav-hamburger-icon"></span>
+        <span class="${headerClasses.navHamburger}-icon"></span>
       </button>`;
     hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
     nav.prepend(hamburger);
@@ -157,7 +168,7 @@ export default async function decorate(block) {
 
     decorateIcons(nav);
     const navWrapper = document.createElement('div');
-    navWrapper.className = 'nav-wrapper';
+    navWrapper.className = headerClasses.navWrapper;
     navWrapper.append(nav);
     block.append(navWrapper);
   }
