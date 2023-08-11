@@ -3,6 +3,7 @@ p, ul, ol, dl, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
 pre {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -10,22 +11,26 @@ pre {
   font-size: var(--text-sm);
   overflow: scroll;
 }
+
 hr {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   border: 0;
   border-bottom: 1px solid var(--overlay-background-color);
 }
+
 code {
   font-family: var(--fixed-font-family);
   font-size: var(--text-sm);
   padding: 0.125em;
 }
+
 samp {
   font-family: var(--fixed-font-family);
   font-size: var(--text-sm);
   padding: 0.125em;
 }
+
 main pre {
   background-color: var(--overlay-background-color);
   padding: 1em;
@@ -33,6 +38,7 @@ main pre {
   overflow-x: auto;
   white-space: pre;
 }
+
 main input {
   font-size: 1.25rem;
   width: 100%;
@@ -46,42 +52,52 @@ main input {
   color: var(--text-color);
   background-color: var(--background-color);
 }
+
 main input:hover {
   border: 1px solid var(--text-color);
 }
+
 main blockquote {
   font-style: italic;
   margin: 3rem;
   text-indent: -1rem;
   hanging-punctuation: first;
 }
+
 main blockquote p::before {
   content: '“';
   line-height: 0;
 }
+
 main blockquote p::after {
   content: '”';
   line-height: 0;
 }
+
 main img {
   max-width: 100%;
   width: auto;
   height: auto;
 }
+
 main .section {
   padding: 64px 16px;
 }
+
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
   color: var(--link-hover-color);
 }
+
 a.button:any-link {
   font-family: var(--body-font-family);
   display: inline-block;
@@ -101,14 +117,17 @@ a.button:any-link {
   text-overflow: ellipsis;
   border-radius: 30px;
 }
+
 a.button:hover {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+
 a.button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+
 button {
   font-family: var(--body-font-family);
   display: inline-block;
@@ -128,41 +147,50 @@ button {
   text-overflow: ellipsis;
   border-radius: 30px;
 }
+
 button:hover {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+
 button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
+
 button:disabled {
   background-color: var(--overlay-background-color);
   cursor: unset;
 }
+
 button:disabled:hover {
   background-color: var(--overlay-background-color);
   cursor: unset;
 }
+
 a.button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color);
 }
+
 button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color);
 }
+
 .icon {
   display: inline-block;
   height: 24px;
   width: 24px;
 }
+
 .icon svg {
   height: 100%;
   width: 100%;
 }
+
 body {
   font-size: var(--text-body);
   margin: 0;
@@ -172,12 +200,15 @@ body {
   background-color: var(--background-color);
   display: none;
 }
+
 body.appear {
   display: unset;
 }
+
 header {
   height: var(--nav-height);
 }
+
 h1 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -187,6 +218,7 @@ h1 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-xxxl);
 }
+
 h2 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -196,6 +228,7 @@ h2 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-xxl);
 }
+
 h3 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -205,6 +238,7 @@ h3 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-xl);
 }
+
 h4 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -214,6 +248,7 @@ h4 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-lg);
 }
+
 h5 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -223,6 +258,7 @@ h5 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-md);
 }
+
 h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
@@ -232,17 +268,20 @@ h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
   font-size: var(--heading-size-sm);
 }
+
 @media (min-width: 600px) {
   main .section {
     padding: 64px 32px;
- }
+  }
 }
+
 @media (min-width: 900px) {
   .section > div {
     max-width: 1200px;
     margin: auto;
- }
+  }
 }
+
 /* ========================================= UTILITY CLASSES ======================================== */
 .sr-only {
   position: absolute;

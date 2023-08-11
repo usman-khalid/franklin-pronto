@@ -1,5 +1,5 @@
-@import 'palette.css';
-@import 'spacing.css';
-@import 'variables.css';
-@import 'typography.css';
-@import 'base.css';
+@import '_palette';
+@import '_spacing';
+@import '_variables';
+@import '_typography';
+@import 'base';

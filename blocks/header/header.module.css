@@ -1,3 +1,5 @@
+@import '../../assets/styles/_mixins';
+
 header {
 	& .nav-wrapper {
 		background-color: var(--background-color);
@@ -95,7 +97,8 @@ header {
 			background-color: var(--overlay-color);
 			
       > ul {
-				list-style: none;
+				@mixin reset-list;
+
 				padding-left: 0;
 				font-size: var(--text-md);
 				font-weight: 500;
