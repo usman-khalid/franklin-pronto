@@ -38,10 +38,30 @@ export default defineConfig({
           const { name } = assetInfo;
           const blockName = name.split('.')[0];
           const isBlock = blocks.includes(blockName);
+          const isStaticAsset = !name.includes('css') && !name.includes('js');
+          const isImage = /\.(gif|jpe?g|tiff?|png|webp|bmp|svg)$/i.test(name);
+          const isFont = /\.(woff|woff2|eot|ttf)$/i.test(name);
+
+          const baseAssetPathLookup = {
+            image: 'assets/images',
+            font: 'assets/fonts',
+            default: 'assets',
+          };
+
+          // eslint-disable-next-line no-nested-ternary
+          const baseAssetPathKey = isImage
+            ? 'image'
+            : isFont
+            ? 'font'
+            : 'default';
+
+          const staticAssetFileName = isStaticAsset
+            ? `${baseAssetPathLookup[baseAssetPathKey]}/[name].[ext]`
+            : 'assets/[name].min.[ext]';
 
           return isBlock
             ? `blocks/${blockName}/${blockName}.min.[ext]`
-            : 'assets/[name].min.[ext]';
+            : staticAssetFileName;
         },
         entryFileNames: (entry) => {
           const { name } = entry;
