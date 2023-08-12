@@ -1,5 +1,5 @@
 # Franklin + Vite
-This repository contains a Franklin implementation that uses Vite to build all client side code to further improve performance, while also providing a more streamlined developer workflow.
+This repository contains a Franklin implementation that uses Vite to build all client side code.
 
 ## Environments
 - Preview: https://main--franklin-pronto--usman-khalid.hlx.page
@@ -18,24 +18,37 @@ npm run lint
 ```
 
 ## Local development
-- `npm run build` — runs the vite build and deploys the contents to the `dist` folder.
-- `npm run dev` — runs the vite build with the watch option and runs `hlx up` in parallel to create a live dev server. Changes to any client side code are reflected automatically and refreshed locally.
+To run the vite build and deploy the contents to the `dist` folder:
+```sh
+npm run build
+```
+To run the vite build with the watch flag and run `hlx up` in parallel, run:
+
+```sh
+npm run dev
+```
+
+Changes to any client side code are reflected automatically and refreshed locally.
+
 
 ## Features
-#### Vite 
-[Vite](https://vitejs.dev/) is used to compile and minify all front-end code (including `lib-franklin.js` & `scripts.js`).
+### Vite 
+[Vite](https://vitejs.dev/) is used to compile and minify all front-end code (including `lib-franklin.js` & `scripts.js`). This gives us many advantages aside from bundling and minification to improve performance, such as [OOTB PostCSS support](https://vitejs.dev/guide/features.html#postcss).
 
-#### Support for [CSS modules](https://css-tricks.com/css-modules-part-1-need/)
-This is particularly useful due to the nature by which the Franklin content bus sends the HTML representation of the content to the browser. Any filename ending with `.module.css` is treated as a module.
+CSS and JS files are simply served from the `dist` folder instead of the source files.
 
-#### CSS Import Inlining
-CSS files can be imported using `@import` via `postcss-import`.
+### Support for [CSS modules](https://css-tricks.com/css-modules-part-1-need/)
+This is particularly useful due to the nature by which the Franklin content bus sends the HTML representation of the content to the browser. In most Franklin implementations, there is a lot of DOM manipulation for blocks, and a lot of classes need to be applied to certain elements within a block. Using CSS modules gives us a few advantages:
+- **Avoiding unintended style collisions**: because the class names genereated by a CSS module contain a unique hash value, there is no risk of impacting another area of the site.
+- **Ease of development**: Importing a CSS module gives us a neat little object with all the class names we need in the JS.
+- **No CSS methodology compliance required**: Because class names are unique for each component, they can be short and meaningful without having to follow a rigid naming convention like BEM, for example.
 
-#### Native CSS Nesting
-Vite has built in support for native CSS nesting. CSS code can be written in plain CSS and selectors can be nested.
+### CSS Import Inlining
+CSS files can be imported using `@import` notation via `postcss-import`.
 
-#### Mixins
-Mixins can be used via `postcss-mixins`. See example in `_mixins.css` and usage in `header.module.css`
+### Native CSS Nesting
+Vite has built in support for native CSS nesting via `postcss-nesting`.
 
-#### JS Dependencies & Libraries
-Each block is bundled independantly, so it can simply be loaded from the `dist` directory instead of `blocks`. This allows us to use npm modules for helper functionality without having to include an entire library or adding it manually into the `scripts` folder.
+### Mixins
+The Vite config in this project adds an additional plugin, `postcss-mixins` to add support for CSS mixins. See an example [here](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/header/header.module.css#L100) and [here](https://github.com/usman-khalid/franklin-vite/blob/main/assets/styles/_mixins.css)
+
