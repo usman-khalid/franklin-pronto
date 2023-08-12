@@ -25,7 +25,7 @@ header {
 			line-height: 1;
 		}
 		
-    & a {
+		& a {
 			&:any-link {
 				color: currentcolor;
 			}
@@ -50,30 +50,30 @@ header {
 				white-space: initial;
 			}
 
-      & span {
-        box-sizing: border-box;
-        display: block;
-        position: relative;
-        width: 20px;
+			& span {
+				box-sizing: border-box;
+				display: block;
+				position: relative;
+				width: 20px;
         
-        &::before {
-          box-sizing: border-box;
-          display: block;
-          width: 20px;
-          content: '';
-          position: absolute;
-          background: currentcolor;
-        }
+				&::before {
+					box-sizing: border-box;
+					display: block;
+					width: 20px;
+					content: '';
+					position: absolute;
+					background: currentcolor;
+				}
   
-        &::after {
-          box-sizing: border-box;
-          display: block;
-          width: 20px;
-          content: '';
-          position: absolute;
-          background: currentcolor;
-        }
-      }
+				&::after {
+					box-sizing: border-box;
+					display: block;
+					width: 20px;
+					content: '';
+					position: absolute;
+					background: currentcolor;
+				}
+			}
 		}
 
 		& .nav-brand {
@@ -96,20 +96,20 @@ header {
 			visibility: hidden;
 			background-color: var(--overlay-color);
 			
-      > ul {
+			> ul {
 				@mixin reset-list;
 
 				padding-left: 0;
 				font-size: var(--text-md);
 				font-weight: 500;
 				
-        > li {
+				> li {
 					font-weight: 700;
 					
-          > ul {
+					> ul {
 						margin-top: 0;
 						
-            > li {
+						> li {
 							font-weight: 500;
 						}
 					}
@@ -127,35 +127,35 @@ header {
 		overflow-y: auto;
 		min-height: 100vh;
 		
-    & .nav-hamburger {
-      & span {
-        height: 22px;
+		& .nav-hamburger {
+			& span {
+				height: 22px;
         
-        &::before {
-          top: 3px;
-          left: 1px;
-          transform: rotate(45deg);
-          transform-origin: 2px 1px;
-          width: 24px;
-          height: 2px;
-          border-radius: 2px;
-        }
+				&::before {
+					top: 3px;
+					left: 1px;
+					transform: rotate(45deg);
+					transform-origin: 2px 1px;
+					width: 24px;
+					height: 2px;
+					border-radius: 2px;
+				}
   
-        &::after {
-          left: 1px;
-          transform-origin: 2px 1px;
-          width: 24px;
-          height: 2px;
-          border-radius: 2px;
-          top: unset;
-          bottom: 3px;
-          transform: rotate(-45deg);
-        }
-      }
-    }
+				&::after {
+					left: 1px;
+					transform-origin: 2px 1px;
+					width: 24px;
+					height: 2px;
+					border-radius: 2px;
+					top: unset;
+					bottom: 3px;
+					transform: rotate(-45deg);
+				}
+			}
+		}
 
 		
-    & .nav-sections {
+		& .nav-sections {
 			display: block;
 			visibility: visible;
 			align-self: start;
@@ -164,26 +164,26 @@ header {
 
 	& nav[aria-expanded='false'] {
 		& .nav-hamburger {
-      & span {
-        height: 2px;
-        border-radius: 2px;
-        background: currentcolor;
+			& span {
+				height: 2px;
+				border-radius: 2px;
+				background: currentcolor;
         
-        &::before {
-          height: 2px;
-          border-radius: 2px;
-          background: currentcolor;
-          top: -6px;
-        }
+				&::before {
+					height: 2px;
+					border-radius: 2px;
+					background: currentcolor;
+					top: -6px;
+				}
         
-        &::after {
-          height: 2px;
-          border-radius: 2px;
-          background: currentcolor;
-          top: 6px;
-        }
-      }
-    }
+				&::after {
+					height: 2px;
+					border-radius: 2px;
+					background: currentcolor;
+					top: 6px;
+				}
+			}
+		}
 	}
 }
 
@@ -201,17 +201,17 @@ header {
 			display: flex;
 			justify-content: space-between;
 			
-      .nav-hamburger {
+			.nav-hamburger {
 				display: none;
 				visibility: hidden;
 			}
 			
-      .nav-sections {
+			.nav-sections {
 				display: block;
 				visibility: visible;
 				white-space: nowrap;
 				
-        .nav-drop {
+				.nav-drop {
 					position: relative;
 					padding-right: 16px;
 					cursor: pointer;
@@ -252,12 +252,12 @@ header {
 						position: relative;
 						font-weight: 500;
 						
-            > ul {
+						> ul {
 							display: none;
 							position: relative;
-              list-style: none;
+							list-style: none;
 							
-              &::before {
+							&::before {
 								content: '';
 								position: absolute;
 								top: -8px;
@@ -295,7 +295,7 @@ header {
 			min-height: 0;
 			overflow: visible;
 			
-      .nav-sections {
+			.nav-sections {
 				align-self: unset;
 			}
 		}
