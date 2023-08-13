@@ -8,7 +8,7 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
     "lint": "npm run lint:js && npm run lint:css",
-    "dev": "concurrently --names \"HELIX,VITE\" -c \"bgBlue.bold,bgMagenta.bold\" \"hlx up\" \"vite build --watch\"",
+    "dev": "cross-env concurrently --names \"HELIX,VITE\" -c \"bgBlue.bold,bgMagenta.bold\" \"hlx up\" \"vite build --watch\"",
     "build": "vite build",
     "semantic-release": "semantic-release --debug"
   },

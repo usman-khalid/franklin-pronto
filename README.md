@@ -1,9 +1,9 @@
 # Franklin + Vite
-This repository contains a Franklin implementation that uses Vite to build all client side code.
+This repository contains a Franklin implementation that uses Vite to build all client side code with a structure set up for scalability.
 
 ## Environments
-- Preview: https://main--franklin-pronto--usman-khalid.hlx.page
-- Live: https://main--franklin-pronto--usman-khalid.hlx.live
+- Preview: https://main--franklin-vite--usman-khalid.hlx.page
+- Live: https://main--franklin-vite--usman-khalid.hlx.live
 
 ## Installation
 
@@ -28,8 +28,9 @@ To run the vite build with the watch flag and run `hlx up` in parallel, run:
 npm run dev
 ```
 
-Changes to any client side code are reflected automatically and refreshed locally.
+This command uses `cross-env` for cross-platform support and uses `concurrently` to run both commands in parallel. 
 
+Changes to any client side code are reflected and refreshed locally.
 
 ## Features
 ### Vite 
