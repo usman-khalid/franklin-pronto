@@ -9,5 +9,11 @@ module.exports = {
       "ignoreAtRules": ["mixin"]
     }],
     "import-notation": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "local"]
+      }
+    ]
   },
 };
