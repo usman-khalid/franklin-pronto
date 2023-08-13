@@ -5,7 +5,7 @@
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 16px;
+    grid-gap: var(--space-base);
 
     & > li {
       border: 1px solid var(--highlight-background-color);
@@ -20,7 +20,7 @@
   }
 
   & .card-body {
-    margin: 16px;
+    margin: var(--space-base);
 
     & > *:first-child {
       margin-top: 0;
@@ -29,5 +29,22 @@
 
   & .card-image {
     line-height: 0;
+  }
+
+  /* Stacked Variation */
+  &:global(.stacked) {
+    display: block;
+    
+    & > ul {
+      display: block;
+
+      & > li {
+        margin-bottom: var(--space-base);
+
+        & img {
+          aspect-ratio: 3.3333;
+        }
+      }
+    }
   }
 }

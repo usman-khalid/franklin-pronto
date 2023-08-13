@@ -213,7 +213,7 @@ header {
 				
         .nav-drop {
           position: relative;
-          padding-right: 16px;
+          padding-right: var(--space-base);
           cursor: pointer;
 
           &::after {
