@@ -54,3 +54,12 @@ Vite has built in support for native CSS nesting via `postcss-nesting`.
 ### Mixins
 The Vite config in this project adds an additional plugin, `postcss-mixins` to add support for CSS mixins. See an example [here](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/header/header.module.css#L100) and [here](https://github.com/usman-khalid/franklin-vite/blob/main/assets/styles/_mixins.css).
 
+### JS
+Third party libraries can be imported the traditional way by installing them via `npm` and importing whatever is needed. Vite takes care of everything necessary to optimize the build and make things reusable import wise. There is a basic example of this in the [cards](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/cards/cards.js#L30) block.
+
+This, of course needs to be weighed against the impact on performance and lighthouse scores, and it may be a good idea to use an `IntersectionObserver` to load a script manually when a block is in view instead.
+
+## Deployment
+This repository contains a `franklin-build` workflow that runs the vite build on `push` and `pull_request` along with the linting.
+
+Because Franklin serves the code directly from the github source, the `dist` folder must be committed to the repo.

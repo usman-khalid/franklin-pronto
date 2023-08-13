@@ -1,4 +1,4 @@
-import { add } from 'ramda';
+import * as R from 'ramda';
 import { createOptimizedPicture } from '../../utils/dom-utils.js';
 import cardClasses from './cards.module.css';
 
@@ -27,6 +27,6 @@ export default function decorate(block) {
   block.append(ul);
 
   // Ramda add
-  const addOneAndTwo = add(1, 2); // => 3
+  const addOneAndTwo = R.add(1, 2); // => 3
   console.log(addOneAndTwo); // eslint-disable-line no-console
 }
