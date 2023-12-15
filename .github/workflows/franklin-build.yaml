@@ -16,8 +16,8 @@ jobs:
     - run: npm run build --if-present
     - run: |
         sed -i -e '/dist/d' .gitignore
-        echo 'dist' >> ./.gitignore
         git config user.name "Github Bot"
         git config user.email "action@github.com"
         git add dist && git commit -m "chore: [$(date +'%Y-%m-%d')] deploy latest build"
         git push
+        echo 'dist' >> ./.gitignore
