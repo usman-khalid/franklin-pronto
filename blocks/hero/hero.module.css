@@ -1,5 +1,5 @@
 
-.hero-container[data-section-status="loaded"] {
+:global(main .hero-container) {
   padding: 0;
 
   > div {
