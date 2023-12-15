@@ -38,13 +38,13 @@ Changes to any client side code are reflected and refreshed locally.
 
 CSS and JS files are simply served from the `dist` folder instead of the source files.
 
-### Support for [CSS modules](https://css-tricks.com/css-modules-part-1-need/)
-This is particularly useful due to the nature by which the Franklin content bus sends the HTML representation of the content to the browser. In most Franklin implementations, there is a lot of DOM manipulation for blocks, and a lot of classes need to be applied to certain elements within a block. Using CSS modules gives us a few advantages:
+### [CSS modules](https://css-tricks.com/css-modules-part-1-need/)
+This is particularly useful due to the nature by which the Franklin content bus sends the HTML representation of the content to the browser. In most Franklin implementations, there is a lot of DOM manipulation for blocks, and classes need to be applied to certain elements within a block. Using CSS modules gives us a few advantages:
 - **Avoiding unintended style collisions**: because the class names genereated by a CSS module contain a unique hash value, there is no risk of impacting another area of the site and we can be certain that our CSS styles are scoped and isolated to that block.
 - **Ease of development**: Importing a CSS module gives us a neat little object with all the class names we need in the JS — we can simply use variables to apply these classes based on different logic in the block.
 - **No CSS methodology compliance required**: Because class names are unique for each component, they can be short and meaningful without having to follow a rigid naming convention like BEM, for example. This avoids having to maintain complex CSS slectors.
 
-*Note: Authored styles in Franklin content can be styled with the `:global` selector. See example for the [stacked card variation](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/cards/cards.module.css#L35).*
+*Note: Styles for block variants can be styled with the `:global` selector as per the spec. See example for the [stacked card variation](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/cards/cards.module.css#L35).*
 
 ### CSS Import Inlining
 CSS files can be imported using `@import` notation via `postcss-import`.
