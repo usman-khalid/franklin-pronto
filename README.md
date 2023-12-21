@@ -44,7 +44,7 @@ This is particularly useful due to the nature by which the Franklin content bus 
 - **Ease of development**: Importing a CSS module gives us a neat little object with all the class names we need in the JS — we can simply use variables to apply these classes based on different logic in the block.
 - **No CSS methodology compliance required**: Because class names are unique for each component, they can be short and meaningful without having to follow a rigid naming convention like BEM, for example. This avoids having to maintain complex CSS slectors.
 
-*Note: Styles for block variants can be styled with the `:global` selector as per the spec. See example for the [stacked card variation](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/cards/cards.module.css#L35).*
+*Note: Global Styles and styles for block variants can be styled with the `:global` selector as per the spec. See example for the [stacked card variation](https://github.com/usman-khalid/franklin-vite/blob/main/blocks/cards/cards.module.css#L35).*
 
 ### CSS Import Inlining
 CSS files can be imported using `@import` notation via `postcss-import`.
